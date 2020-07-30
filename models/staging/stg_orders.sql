@@ -14,7 +14,7 @@ with source_data as (
     , ship_postal_code
     , ship_city
     , freight
-    , ship_via
+    , ship_via as shipper_id
     , ship_address
     , required_date
     from {{source('northwind_erp','orders')}}

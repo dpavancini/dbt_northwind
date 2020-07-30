@@ -22,8 +22,6 @@ transformed as (
     , region
     , photo_path
     , home_phone
-    , reports_to
-    , employee_id
     , title
     , title_of_courtesy
     , notes
