@@ -1,4 +1,4 @@
-Welcome to the Dbt Northwind tutorial!
+## Welcome to the Dbt Northwind tutorial!
 
 This is a learning project used in Indicium Academy ETL course. You will need a Northwind SQL database installed in a data warehouse to run the models. You can find different database northwind flavors [here](https://github.com/pthom/northwind_psql)
 

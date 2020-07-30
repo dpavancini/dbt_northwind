@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 with customers as (
     select
       customer_sk
@@ -71,10 +73,6 @@ orders_detail_with_sk as (
 final as (
     select
       order_dtl.order_id
-    , order_dtl.product_fk
-    , order_dtl.discount
-    , order_dtl.unit_price
-    , order_dtl.quantity
     , orders.employee_fk
     , orders.customer_fk
     , orders.shipper_fk
@@ -88,9 +86,12 @@ final as (
     , orders.freight
     , orders.ship_address
     , orders.required_date
+    , order_dtl.product_fk
+    , order_dtl.discount
+    , order_dtl.unit_price
+    , order_dtl.quantity
     from orders_with_sk orders
     left join orders_detail_with_sk order_dtl ON orders.order_id = order_dtl.order_id
-
 )
 
 select * from final
