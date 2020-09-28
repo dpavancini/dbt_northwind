@@ -33,6 +33,27 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   tutorial_dbt:
+      # Persists documentation of tables and columns to the DW metadata
+      +persist_docs:
+        relation: true
+        columns: true
       # Applies to all files under models/example/
       staging:
           materialized: ephemeral
+      marts:
+          materialized: table
+
+
+
+seeds:
+  tutorial_dbt:
+    +enabled: true
+    +schema: seed_data
+    # This configures data/seed_supplier_divisions.csv
+    seed_supplier_divisions:
+      # Override column types
+      +column_types:
+        country: string
+        division: string
+
+

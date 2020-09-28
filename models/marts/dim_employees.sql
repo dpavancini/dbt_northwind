@@ -1,7 +1,13 @@
-with
-    source_data as (
+with 
+    staging as (
+        select *
+        from {{ref('stg_employees')}}
+    )
+    , transformed as (
         select
-            employee_id
+            row_number() over (order by employee_id) as employee_sk -- auto-incremental surrogate key
+            , employee_id
+            , reports_to
             , first_name ||" "|| last_name as name
             , first_name
             , last_name
@@ -15,17 +21,10 @@ with
             , region
             , photo_path
             , home_phone
-            , reports_to
             , title
             , title_of_courtesy
             , notes
-            , _sdc_batched_at
-            , _sdc_extracted_at
-            , _sdc_received_at
-            , _sdc_sequence
-            , _sdc_table_version
-        from {{source('northwind_erp','employees')}}
+        from staging
     )
 
-select *
-from source_data
+    select *  from transformed
