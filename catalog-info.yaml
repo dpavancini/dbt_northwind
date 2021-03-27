@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dbt_northwind
+  annotations:
+    github.com/project-slug: dpavancini/dbt_northwind
+spec:
+  type: other
+  lifecycle: unknown
+  owner: data-engineering
