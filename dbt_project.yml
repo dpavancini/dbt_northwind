@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'northwind_shop'
+profile: 'local-dw'
 
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
@@ -53,7 +53,7 @@ seeds:
     seed_supplier_divisions:
       # Override column types
       +column_types:
-        country: string
-        division: string
+        country: text
+        division: text
 
 

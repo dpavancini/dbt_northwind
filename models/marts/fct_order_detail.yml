@@ -5,12 +5,8 @@ models:
     columns:
       - name: order_id
         description: The primary key of the order
-        tests:
-          - not_null
+
 
       - name: employee_fk
         description: The foreign key to the employees dimension table
-        tests:
-          - relationships:
-                to: ref('dim_customers')
-                field: 'customer_sk'
+

@@ -1,0 +1,7 @@
+site_name: 'dbt-northwind-docs'
+
+nav:
+  - Home: README.md
+
+plugins:
+  - techdocs-core
