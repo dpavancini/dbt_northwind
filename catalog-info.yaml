@@ -1,10 +1,18 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: dbt_northwind
+  name: dbt-northwind
+  # This is an extra long description
+  description: This is a learning project used in Indicium Academy ETL course. You will need a Northwind SQL database installed in a data warehouse to run the models.
+  links:
+    - url: https://github.com/dpavancini/dbt_northwind
+      title: GitHub Repo
+      icon: github
   annotations:
-    github.com/project-slug: dpavancini/dbt_northwind
+    backstage.io/techdocs-ref: dir:.
 spec:
-  type: other
-  lifecycle: unknown
-  owner: data-engineering
+  type: service
+  lifecycle: experimental
+  owner: team-c
+  system: northwind-data-pipeline
+  dependsOn: ['resource:northwind-db', 'component:tap-northwind']

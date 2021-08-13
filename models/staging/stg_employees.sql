@@ -2,7 +2,6 @@ with
     source_data as (
         select
             employee_id
-            , first_name ||" "|| last_name as name
             , first_name
             , last_name
             , country
@@ -19,11 +18,11 @@ with
             , title
             , title_of_courtesy
             , notes
-            , _sdc_batched_at
-            , _sdc_extracted_at
-            , _sdc_received_at
-            , _sdc_sequence
-            , _sdc_table_version
+            -- , _sdc_batched_at
+            -- , _sdc_extracted_at
+            -- , _sdc_received_at
+            -- , _sdc_sequence
+            -- , _sdc_table_version
         from {{source('northwind_erp','employees')}}
     )
 
